@@ -1,0 +1,64 @@
+[
+{
+<<<<<<< HEAD
+    "content": [
+        "詳細", 
+        "不適切なコンテンツを報告"
+    ], 
+    "learn_href": [
+        "https://support.google.com/googleplay?p=appgame_ratings", 
+        "https://support.google.com/googleplay/?p=report_content"
+    ], 
+    "updatetime": [
+        "2017年8月25日", 
+        " 100,000～500,000 ", 
+        " 9.0.2.1275_radar  ", 
+        "     4.1 以上   ", 
+        "📡 Weather Widget Theme Dev Team"
+    ], 
+    "title": [
+        "3 歳以上"
+    ], 
+    "permission": [
+        "nan"
+    ]
+},{
+    "content": [
+        "詳細", 
+        "不適切なコンテンツを報告"
+    ], 
+    "learn_href": [
+        "https://support.google.com/googleplay?p=appgame_ratings", 
+        "https://support.google.com/googleplay/?p=report_content"
+    ], 
+    "updatetime": [
+        "2017年9月11日", 
+        " 100,000～500,000 ", 
+        " 9.0.4.1402_radar  ", 
+        "     4.1 以上   ", 
+        "📡 Weather Widget Theme Dev Team"
+    ], 
+    "title": [
+        "3 歳以上"
+    ], 
+    "permission": [
+        "nan"
+=======
+    "title_URL": "https://play.google.com/store/apps/details?id=mobi.infolife.ezweather.widget.batteryandweather", 
+    "imgURL": [
+        "//lh3.googleusercontent.com/jJyNTeMWjoMOsc7_Z878s5_497DrEw9mpHlOGXy-n8EgExN8yODC_KVypnmIa7KjqQo=w300"
+    ], 
+    "title": [
+        "今日明日天気 今週の天気 日本天気情報 ウィジェット 無料"
+    ]
+},{
+    "title_URL": "https://play.google.com/store/apps/details?id=mobi.infolife.ezweather.widget.localweatherapp", 
+    "imgURL": [
+        "//lh3.googleusercontent.com/n2MmVygcmP4-0uf8Dk_FQfrI_LlKJ-vRW9TzvpZvWfnht0vgj7ST4TAO0rFdoFebVxI=w300"
+    ], 
+    "title": [
+        "Storm & Rain Radar Weather App"
+>>>>>>> f5fece91c45c0cff50366993fc577419a843dbf8
+    ]
+}
+]

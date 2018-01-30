@@ -1,0 +1,171 @@
+#! /usr/bin/env python2
+# -*- coding:utf-8 -*-
+
+#  mysql_config
+
+local_mysql_auth = {
+    'host': '127.0.0.1',
+    'user': 'xx',
+    'passwd': 'xx',
+    'dbname': 'xx'
+}
+
+remote_mysql_auth = {
+    'host': '127.0.0.1',
+    'user': 'xx',
+    'passwd': 'xx',
+    'dbname': 'xx'
+}
+
+# --------------------
+task_list = {
+    # task store
+    "store": {
+        "category": "store",
+        "amazon_s3_auth": {
+            "region": "us-east-1",
+            "bucket": "xx",
+            "accessKey": "xx",
+            "secretKey": "xx"
+        },
+
+        "aws_appid_list": [
+            'xx',
+            'xx',
+        ],
+
+        'filter_event_list': [
+            'open_store',
+            'open_store_type',
+            'click_to_gp',
+        ],
+
+        "log": {
+            'filename': "store_main.log",
+            'debug': True,
+        },
+
+        # download s3
+        'keep_s3_file': True,
+        'tmp_local_file_dir': 'local_s3_dir',
+
+        # parser class name
+        'parser_function_name': 'store_parser_json',
+
+        # tmp sql file
+        'keep_sql_file': False,
+        'tmp_sql_file_name': './store_raw',
+        # support time format
+        'tmp_sql_file_name_suffix': '_%Y%m%d_%H%M%S.sql',
+        # field list
+        'field_list': ['time', 'client_time', 'arrival_time', 'client_id', 'device_id',
+                       'event_type', 'hash', 'country', 'sim_country', 'ip_country',
+                       'lang', 'brand', 'model', 'os_version', 'app_type',
+                       'store_version', 'store_item_type', 'pkg_name', 'open_count'
+                       ],
+
+        'raw_data_table_name': 'store_raw',
+        # support time format
+        'raw_data_table_name_suffix': '_%Y%m',
+        # creat table function
+        'create_raw_data_table_function': 'create_table_store_raw',
+
+        # ---- summary -----
+        'create_summary_table_function': 'create_table_store_summary',
+        'compute_summary_function': 'compute_store_summary',
+
+        'dimension_table_name': 'dimension_enum',
+        'summary_data_table_name': 'store_summary',
+
+        'keep_summary_sql_file': False,
+        'tmp_summary_sql_file_name': './store_summary',
+        # support time format
+        'tmp_summary_sql_file_name_suffix': '_%Y%m%d_%H%M%S.sql',
+
+        'summary_dimension_1_name_list': [
+            'global', 'store_version', 'store_item_type', 'pkg_name'],
+        'summary_dimension_2_name_list': [
+            'global', 'country', 'ip_country', 'sim_country', 'lang',
+            'brand', 'model', 'os_version', 'app_type',
+            'open_count'
+        ],
+        'summary_metric_name_list': ['pv', 'uv', 'clicks', 'ctr'],
+        'keep_mysql_dump_file': True,
+        'mysql_dump_file_name': 'dump_store',
+        'mysql_dump_file_name_suffix': '_%Y%m%d_%H%M%S.sql'
+
+    },
+    # task push
+    "push": {
+        "amazon_s3_auth": {
+            "region": "us-east-1",
+            "bucket": "xx",
+            "accessKey": "xx",
+            "secretKey": "xx"
+        },
+
+        "aws_appid_list": [
+            'xx',
+            'xx',
+        ],
+
+        'filter_event_list': [
+            'pull_msg',
+            'show_msg',
+            'click_msg',
+        ],
+
+        "log": {
+            'filename': "push_main.log",
+            'debug': True,
+        },
+
+        # download s3
+        'keep_s3_file': True,
+        'tmp_local_file_dir': 'local_s3_dir',
+
+        # parser class name
+        'parser_function_name': 'push_parser_json',
+
+        # tmp sql file
+        'keep_sql_file': False,
+        'tmp_sql_file_name': './push_raw',
+        # support time format
+        'tmp_sql_file_name_suffix': '_%Y%m%d_%H%M%S.sql',
+        # field list
+        'field_list': ['time', 'client_time', 'arrival_time', 'client_id', 'device_id',
+                       'event_type', 'hash', 'country', 'sim_country', 'ip_country',
+                       'lang', 'brand', 'model', 'os_version', 'app_type',
+                       'msg_id', 'mid', 'push_type', 'push_count', 'fetch_img_status',
+                       ],
+
+        'raw_data_table_name': 'push_raw',
+        # support time format
+        'raw_data_table_name_suffix': '_%Y%m',
+        # creat table function
+        'create_raw_data_table_function': 'create_table_push_raw',
+
+        # ---- summary -----
+        'create_summary_table_function': 'create_table_push_summary',
+        'compute_summary_function': 'compute_push_summary',
+
+        'dimension_table_name': 'dimension_enum',
+        'summary_data_table_name': 'push_summary',
+
+        'keep_summary_sql_file': True,
+        'tmp_summary_sql_file_name': './push_summary',
+        # support time format
+        'tmp_summary_sql_file_name_suffix': '_%Y%m%d_%H%M%S.sql',
+
+        'summary_dimension_1_name_list': ['global'],
+        'summary_dimension_2_name_list': [
+            'global', 'country', 'ip_country', 'sim_country', 'lang',
+            'brand', 'model', 'os_version', 'app_type',
+            'msg_id', 'mid', 'push_type', 'push_count', 'fetch_img_status',
+        ],
+        'summary_metric_name_list': ['push_count', 'pv', 'uv', 'clicks', 'ctr'],
+        'keep_mysql_dump_file': True,
+        'mysql_dump_file_name': 'dump_push',
+        'mysql_dump_file_name_suffix': '_%Y%m%d_%H%M%S.sql'
+    }
+}
